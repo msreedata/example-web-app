@@ -5,7 +5,7 @@ COPY . .
 RUN CGO_ENABLED=0 go build -o app .
 
 FROM alpine:latest
-RUN apk --no-cache add ca-certificates
+MAINTAINER ops@adhocteam.us
 WORKDIR /root/
 COPY --from=0 /go/src/app/app .
 CMD ["./app"]

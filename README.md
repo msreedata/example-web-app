@@ -7,7 +7,7 @@ A simple web app for demonstration purposes in other projects, like
 Getting started
 ---------------
 
-** Requirements:**
+**Requirements:**
 
  - Docker 17.05 or above (for [multi-stage builds](https://docs.docker.com/engine/userguide/eng-image/multistage-build/#use-multi-stage-builds))
 

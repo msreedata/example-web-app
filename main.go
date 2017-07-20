@@ -11,6 +11,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		t0 := time.Now()
 		tmpl, err := template.New("hello-world.html").Parse(`
 <!doctype html>
 <html lang=en>
@@ -23,6 +24,8 @@ func main() {
         <h1>Hello, {{ .Name }}</h1>
 	<hr>
 	<p>Try setting the name with a URL parameter <code>?name=FOO</code>.</p>
+        <hr>
+        This page generated in {{ .Elapsed }} seconds.
     </body>
 </html>
 `)
@@ -36,7 +39,7 @@ func main() {
 		if name == "" {
 			name = "World"
 		}
-		if err := tmpl.Execute(w, struct{ Name string }{Name: name}); err != nil {
+		if err := tmpl.Execute(w, struct{ Name string, Elapsed time.Duration }{Name: name, Elapsed: time.Now().Sub(t0)}); err != nil {
 			log.Printf("executing template: %v", err)
 		}
 	})

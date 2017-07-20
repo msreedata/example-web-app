@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 )
 
 func main() {
@@ -39,7 +40,13 @@ func main() {
 		if name == "" {
 			name = "World"
 		}
-		if err := tmpl.Execute(w, struct{ Name string, Elapsed time.Duration }{Name: name, Elapsed: time.Now().Sub(t0)}); err != nil {
+		if err := tmpl.Execute(w, struct {
+			Name    string
+			Elapsed time.Duration
+		}{
+			Name:    name,
+			Elapsed: time.Now().Sub(t0),
+		}); err != nil {
 			log.Printf("executing template: %v", err)
 		}
 	})

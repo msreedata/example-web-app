@@ -21,6 +21,8 @@ func main() {
     </head>
     <body>
         <h1>Hello, {{ .Name }}</h1>
+	<hr>
+	<p>Try setting the name with a URL parameter <code>?name=FOO</code>.</p>
     </body>
 </html>
 `)

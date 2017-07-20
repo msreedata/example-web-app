@@ -19,7 +19,7 @@ func main() {
     <head>
         <meta charset=utf-8>
         <title>Hello, {{ .Name }}</title>
-        <style>html, body { background: #118762; color: rgba(255, 255, 255, 0.9); font-family: -apple-system, BlinkMacSystemFont, sans-serif; }</style>
+        <style>html, body { background: #116287; color: rgba(255, 255, 255, 0.9); font-family: -apple-system, BlinkMacSystemFont, sans-serif; }</style>
     </head>
     <body>
         <h1>Hello, {{ .Name }}</h1>

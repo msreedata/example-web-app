@@ -30,6 +30,7 @@ func main() {
               margin: 0 auto;
               padding: 40px 0;
           }
+          a { color: purple; }
         </style>
     </head>
     <body>
@@ -75,5 +76,6 @@ func main() {
 	if port == "" {
 		port = "8080"
 	}
+	log.Printf("Listening on http://0.0.0.0:%s/", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }

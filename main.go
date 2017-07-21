@@ -19,17 +19,28 @@ func main() {
     <head>
         <meta charset=utf-8>
         <title>Hello, {{ .Name }}</title>
-        <style>html, body { background: #118762; color: rgba(255, 255, 255, 0.9); font-family: -apple-system, BlinkMacSystemFont, sans-serif; }</style>
+        <style>
+          html, body {
+              background: #118762;
+              color: rgba(255, 255, 255, 0.9);
+              font-family: georgia, serif;
+          }
+          body {
+              width: 800px;
+              margin: 0 auto;
+              padding: 40px 0;
+          }
+        </style>
     </head>
     <body>
         <h1>Hello, {{ .Name }}</h1>
 	<hr>
 	<p>Try setting the name with a URL parameter <code>?name=FOO</code>.</p>
-<p>Examples:</p>
-<ul>
-<li><a href="?name=Brian%20Eno">?name=Brian Eno</a>
-<li><a href="?name=🖖">?name=🖖</a>
-</ul>
+        <p>Examples:</p>
+        <ul>
+            <li><a href="?name=Brian%20Eno">?name=Brian Eno</a>
+            <li><a href="?name=🖖">?name=🖖</a>
+        </ul>
         <hr>
         This page generated in {{ .Elapsed }} seconds.
     </body>

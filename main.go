@@ -25,6 +25,11 @@ func main() {
         <h1>Hello, {{ .Name }}</h1>
 	<hr>
 	<p>Try setting the name with a URL parameter <code>?name=FOO</code>.</p>
+<p>Examples:</p>
+<ul>
+<li><a href="?name=Brian%20Eno">?name=Brian Eno</a>
+<li><a href="?name=🖖">🖖</a>
+</ul>
         <hr>
         This page generated in {{ .Elapsed }} seconds.
     </body>

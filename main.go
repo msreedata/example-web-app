@@ -28,7 +28,7 @@ func main() {
 <p>Examples:</p>
 <ul>
 <li><a href="?name=Brian%20Eno">?name=Brian Eno</a>
-<li><a href="?name=🖖">🖖</a>
+<li><a href="?name=🖖">?name=🖖</a>
 </ul>
         <hr>
         This page generated in {{ .Elapsed }} seconds.

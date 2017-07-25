@@ -30,7 +30,7 @@ func main() {
               margin: 0 auto;
               padding: 40px 0;
           }
-          a { color: purple; }
+          a { color: #8CDE60; }
         </style>
     </head>
     <body>
@@ -39,6 +39,7 @@ func main() {
 	<p>Try setting the name with a URL parameter <code>?name=FOO</code>.</p>
         <p>Examples:</p>
         <ul>
+            <li><a href=".">Hello, World (default)</a>
             <li><a href="?name=Brian%20Eno">?name=Brian Eno</a>
             <li><a href="?name=🖖">?name=🖖</a>
         </ul>

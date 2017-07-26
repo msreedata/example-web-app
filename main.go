@@ -31,6 +31,14 @@ func main() {
               padding: 40px 0;
           }
           a { color: #8CDE60; }
+h1 {
+    font-family: arial, sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: rgba(255,255,255,0.6);
+    background: rgba(0,0,0,0.05);
+    padding: 10px;
+}
         </style>
     </head>
     <body>

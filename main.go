@@ -12,8 +12,27 @@ import (
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		t0 := time.Now()
-		tmpl, err := template.New("hello-world.html").Parse(`
+		switch r.URL.Path {
+		case "/":
+			home(w, r)
+		case "/_healthcheck":
+			healthcheck(w, r)
+		default:
+			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
+		}
+	})
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	log.Printf("Listening on http://0.0.0.0:%s/", port)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
+}
+
+func home(w http.ResponseWriter, r *http.Request) {
+	t0 := time.Now()
+	tmpl, err := template.New("hello-world.html").Parse(`
 <!doctype html>
 <html lang=en>
     <head>
@@ -56,35 +75,27 @@ h1 {
     </body>
 </html>
 `)
-		if err != nil {
-			log.Printf("parsing template: %v", err)
-			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
-			return
-		}
-		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		name := r.FormValue("name")
-		if name == "" {
-			name = "World"
-		}
-		if err := tmpl.Execute(w, struct {
-			Name    string
-			Elapsed time.Duration
-		}{
-			Name:    name,
-			Elapsed: time.Now().Sub(t0),
-		}); err != nil {
-			log.Printf("executing template: %v", err)
-		}
-	})
-
-	http.HandleFunc("/_healthcheck", func(w http.ResponseWriter, r *http.Request) {
-		_, _ = w.Write([]byte("OK\n"))
-	})
-
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
+	if err != nil {
+		log.Printf("parsing template: %v", err)
+		http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+		return
 	}
-	log.Printf("Listening on http://0.0.0.0:%s/", port)
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	name := r.FormValue("name")
+	if name == "" {
+		name = "World"
+	}
+	if err := tmpl.Execute(w, struct {
+		Name    string
+		Elapsed time.Duration
+	}{
+		Name:    name,
+		Elapsed: time.Now().Sub(t0),
+	}); err != nil {
+		log.Printf("executing template: %v", err)
+	}
+}
+
+func healthcheck(w http.ResponseWriter, r *http.Request) {
+	_, _ = w.Write([]byte("OK\n"))
 }

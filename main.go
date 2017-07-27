@@ -3,6 +3,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -17,6 +18,8 @@ func main() {
 			home(w, r)
 		case "/_healthcheck":
 			healthcheck(w, r)
+		case "/envdump":
+			envdump(w, r)
 		default:
 			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
 		}
@@ -99,4 +102,11 @@ h1 {
 
 func healthcheck(w http.ResponseWriter, r *http.Request) {
 	_, _ = w.Write([]byte("OK\n"))
+}
+
+func envdump(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/plain")
+	for _, pair := range os.Environ() {
+		fmt.Fprintf(w, "%s\n", pair)
+	}
 }

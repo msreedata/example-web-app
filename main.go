@@ -66,6 +66,7 @@ h1 {
     </head>
     <body>
         <h1>Hello, {{ .Name }}</h1>
+        <p>hello, friday demo</p>
 	<hr>
 	<p>Try setting the name with a URL parameter <code>?name=FOO</code>.</p>
         <p>Examples:</p>

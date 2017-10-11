@@ -43,7 +43,7 @@ func home(w http.ResponseWriter, r *http.Request) {
         <title>Hello, {{ .Name }}</title>
         <style>
           html, body {
-              background: purple;
+              background: green;
               color: rgba(255, 255, 255, 0.9);
               font-family: georgia, serif;
           }
@@ -67,7 +67,7 @@ h1 {
     <body>
         <h1>Hello, {{ .Name }}</h1>
 	<hr>
-	<p>Hello, Melanie, Louis, and Wyatt (and Mike too)</p>
+	<p>Hello, Devoted Health!</p>
 	<p>Try setting the name with a URL parameter <code>?name=FOO</code>.</p>
         <p>Examples:</p>
         <ul>

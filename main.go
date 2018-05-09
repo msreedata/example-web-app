@@ -43,7 +43,7 @@ func home(w http.ResponseWriter, r *http.Request) {
         <title>Hello, {{ .Name }}</title>
         <style>
           html, body {
-              background: hsl(90, 82%, 58%);
+              background: hsl(90, 0%, 0%);
               color: rgba(255, 255, 255, 0.9);
               font-family: georgia, serif;
           }
@@ -52,7 +52,6 @@ func home(w http.ResponseWriter, r *http.Request) {
               margin: 0 auto;
               padding: 40px 0;
           }
-          a { color: #8CDE60; }
 h1 {
     font-family: arial, sans-serif;
     font-weight: 400;
@@ -67,7 +66,6 @@ h1 {
     <body>
         <h1>Hello, {{ .Name }}</h1>
 	<hr>
-	<p>Hello, Steven and Kaitlin</p>
 	<p>Try setting the name with a URL parameter <code>?name=FOO</code>.</p>
         <p>Examples:</p>
         <ul>

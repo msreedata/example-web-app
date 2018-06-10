@@ -43,9 +43,9 @@ func home(w http.ResponseWriter, r *http.Request) {
         <title>Hello, {{ .Name }}</title>
         <style>
           html, body {
-              background: hsl(240, 100%, 50%);
-              color: rgba(255, 255, 255, 0.9);
-              font-family: georgia, serif;
+              background: hsla(319, 81%, 25%, 0.8);
+              color: rgba(78, 145, 145, 0.8);
+              font-family: segoeui, serif;
           }
           body {
               width: 800px;

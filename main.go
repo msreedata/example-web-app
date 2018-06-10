@@ -45,7 +45,7 @@ func home(w http.ResponseWriter, r *http.Request) {
           html, body {
               background: hsla(155, 24%, 78%, 0.9);
               color: rgba(9, 87, 54, 0.9);
-              font-family: segoeui, serif;
+              font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
           }
           body {
               width: 800px;
@@ -53,11 +53,11 @@ func home(w http.ResponseWriter, r *http.Request) {
               padding: 40px 0;
           }
 h1 {
-    font-family: arial, sans-serif;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
     font-weight: 400;
     font-size: 48px;
-    color: rgba(255,255,255,0.6);
-    background: rgba(0,0,0,0.05);
+    color: rgba(52, 43, 24, 0.9);
+    background: hsla(119, 68%, 96%, 0.9);
     padding: 10px;
     text-align: center;
 }

@@ -66,13 +66,12 @@ h1 {
     <body>
         <h1>Hello, {{ .Name }}</h1>
 	<hr>
-	<p>Hello, infrastructure!</p>
+	<p>Hello, This is a Go hello world page!</p>
 	<p>Try setting the name with a URL parameter <code>?name=FOO</code>.</p>
         <p>Examples:</p>
         <ul>
-            <li><a href=".">Hello, World (default)</a>
-            <li><a href="?name=Brian%20Eno">?name=Brian Eno</a>
-            <li><a href="?name=🖖">?name=🖖</a>
+            <li><a href=".">Hello, Go (default)</a>
+            <li><a href="?name=docker%Studio">?name=docker Studio</a>
         </ul>
         <hr>
         <p><a href="/envdump">Dump environment variables</a></p>

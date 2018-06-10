@@ -8,4 +8,5 @@ FROM alpine:latest
 MAINTAINER ops@adhocteam.us
 WORKDIR /root/
 COPY --from=builder /go/src/app/app .
+EXPOSE 80
 CMD ["./app"]
